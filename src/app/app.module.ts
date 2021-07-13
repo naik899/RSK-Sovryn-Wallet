@@ -12,6 +12,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { WalletComponent } from './pages/wallet/wallet.component';
+import { TransactionsComponent } from './pages/transactions/transactions.component';
+import { SpotpricesComponent } from './pages/spotprices/spotprices.component';
+import { NftComponent } from './pages/nft/nft.component';
+import { ExplorerComponent } from './pages/transactions/explorer/explorer.component';
+import { ValuetransferComponent } from './pages/transactions/valuetransfer/valuetransfer.component';
+import { InteractionComponent } from './pages/transactions/interaction/interaction.component';
+import { DeploymentComponent } from './pages/transactions/deployment/deployment.component';
 
 
 @NgModule({
@@ -27,7 +35,15 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    WalletComponent,
+    TransactionsComponent,
+    SpotpricesComponent,
+    NftComponent,
+    ExplorerComponent,
+    ValuetransferComponent,
+    InteractionComponent,
+    DeploymentComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
