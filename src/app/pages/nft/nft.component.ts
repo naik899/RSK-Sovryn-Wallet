@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BalanceService } from 'src/app/services/balance/balance.service';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 
 @Component({
   selector: 'app-nft',
@@ -8,14 +9,14 @@ import { BalanceService } from 'src/app/services/balance/balance.service';
 })
 export class NftComponent implements OnInit {
 
-  constructor(private tokenService: BalanceService) { }
+  constructor(private tokenService: BalanceService, private loaderService: LoaderService) { }
   public NftData = [];
   async ngOnInit(): Promise<void> {
-   // this.loaderSerivce.showLoader();
     let data = await this.tokenService.getInfo(true);
-    
     this.processNFTData(data);
 
+    
+    
   }
 
   public processNFTData(data: any) {
@@ -37,6 +38,7 @@ export class NftComponent implements OnInit {
       }
     }
     this.NftData = tempArray;
+    
 
   }
 

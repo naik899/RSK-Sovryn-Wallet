@@ -20,6 +20,8 @@ import { ExplorerComponent } from './pages/transactions/explorer/explorer.compon
 import { ValuetransferComponent } from './pages/transactions/valuetransfer/valuetransfer.component';
 import { InteractionComponent } from './pages/transactions/interaction/interaction.component';
 import { DeploymentComponent } from './pages/transactions/deployment/deployment.component';
+import { ClipboardModule } from 'ngx-clipboard';
+import { NftDetailsComponent } from './pages/nft/nft-details/nft-details.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { DeploymentComponent } from './pages/transactions/deployment/deployment.
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ClipboardModule,
   ],
   declarations: [
     AppComponent,
@@ -43,7 +46,8 @@ import { DeploymentComponent } from './pages/transactions/deployment/deployment.
     ExplorerComponent,
     ValuetransferComponent,
     InteractionComponent,
-    DeploymentComponent
+    DeploymentComponent,
+    NftDetailsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

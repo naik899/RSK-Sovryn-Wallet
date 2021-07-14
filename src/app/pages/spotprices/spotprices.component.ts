@@ -60,4 +60,9 @@ export class SpotpricesComponent implements OnInit {
    // this.loader.hideLoader();
   }
 
+
+  getTokenHolders(contractAddress: string): string{
+    return contractAddress;
+  }
+
 }

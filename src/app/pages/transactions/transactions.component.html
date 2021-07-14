@@ -1,1 +1,208 @@
-<p>transactions works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <div class="row">
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Transactions</h5>
+                    <span class="h2 font-weight-bold mb-0">{{transactionService?.transactionList?.length}}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                      <i class="fas fa-exchange-alt"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Contract Creation</h5>
+                    <span class="h2 font-weight-bold mb-0">{{transactionService?.deploymentTransactions?.length}}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                      <i class="fas fa-code"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Value Transfers</h5>
+                    <span class="h2 font-weight-bold mb-0">{{transactionService?.valueTransfers?.length}}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                      <i class="fas fa-money-bill"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Contract Interactions</h5>
+                    <span class="h2 font-weight-bold mb-0">{{transactionService?.interactionTransfers?.length}}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                      <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br/><br/>
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Avg Gas Spent</h5>
+                      <span class="h2 font-weight-bold mb-0">{{transactionService?.avgGasSpent}}</span>
+                    </div>
+                    <br/> <br/> <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total Value of transfers</h5>
+                      <span class="h2 font-weight-bold mb-0">{{transactionService?.totalValueTransfer}}</span>
+                    </div>
+                  </div>
+                  <br/> 
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total Value of transfers in USD</h5>
+                      <span class="h2 font-weight-bold mb-0">$ {{transactionService?.valueTransferUSD}}</span>
+                    </div>
+                    
+                  </div>
+                  <br/> 
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Most Interacted Contract Address</h5>
+                      <button type="button" style="color: #525f7f;" class="btn btn-link" ngxClipboard [cbContent]="transactionService?.mostinteracted">{{transactionService?.mostinteracted?.slice(0, 20)}}...</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <br/><br/>
+
+   
+
+      <div class="row">
+        <div class="col">
+           
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0">Transaction Explorer</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">S.No</th>
+                 
+                    <th scope="col">Tx Hash</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Gas Spent</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Timestamp</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let trans of transactionService.transactionList; index as ind">
+                    <th>{{ind+ 1}}</th>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                            <button type="button" style="color: #525f7f;" class="btn btn-link" ngxClipboard [cbContent]="trans.tx_hash">{{trans.tx_hash.slice(0, 10)}}...</button>
+                         
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                        <button type="button" style="color: #525f7f;" class="btn btn-link" ngxClipboard [cbContent]="trans.from_address">{{trans.from_address?.slice(0, 10)}}...</button>
+                        
+                    </td>
+
+                    <td>
+                        <button type="button" style="color: #525f7f;" class="btn btn-link" ngxClipboard [cbContent]="trans.to_address">{{trans.to_address?.slice(0, 10)}}...</button>
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        {{trans.value }}
+                      </span>
+                    </td>
+                    <td>
+                        {{trans.gas_spent}}
+                     
+                    </td>
+                    <td>
+                        {{trans.log_events.length > 0 ? 'Smart Contract Interaction': trans.to_address == null ? 'Smart Contract Creation' : 'Value Transfer'}}
+                    
+                    </td>
+                    <td >
+                        {{trans.block_signed_at}}
+                    </td>
+                   
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

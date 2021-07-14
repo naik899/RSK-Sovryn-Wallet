@@ -20,4 +20,10 @@ export class PriceService {
     let getSpotPricesEndPoint = environment.apiUrl + "/v1/pricing/tickers/?key="+ environment.apiKey + "&tickers=" + ticker ;
     return  this.http.get<any>(getSpotPricesEndPoint).toPromise();
   }
+
+  getHistoricalPriceByTicker(ticker: string, contractAddress: string): Promise<any>
+  {
+    let getHistoricalSpotPricesEndPoint = environment.apiUrl + "/v1/pricing/historical/USD/"+ticker +"/"+ contractAddress+"/?key="+ environment.apiKey ;
+    return  this.http.get<any>(getHistoricalSpotPricesEndPoint).toPromise();
+  }
 }

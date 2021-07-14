@@ -1,1 +1,43 @@
-<p>wallet works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <h1 style="color: #fff;">Token Balances ~ {{getTotalBalance()}}</h1> <br/>
+        <div class="row">
+       
+          <div class="col-xl-3 col-lg-6" *ngFor="let item of tokenInfo">
+            <div class="card card-stats mb-4 mb-xl-0" style="margin-top: 10px;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">{{item.contract_name}}</h5>
+                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-danger text-white  shadow">
+                        <img *ngIf="item.logo_url.length > 0" src="{{item.logo_url}}" style="max-height: 150px; max-width: 300px;"  alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+                        <img *ngIf="item.logo_url.length == 0" style="max-height: 150px; max-width: 300px;" src="https://s3-ap-southeast-1.amazonaws.com/content-ewns/images/productimages/small/5fff3d958d5dbc10304de1bb.png" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+                        
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                  <span class="text-success mr-2">{{getWalletBalance(item.balance, item.contract_decimals)}} {{item.contract_ticker_symbol}} {{getUSDBalance(item.balance, item.contract_ticker_symbol, item.contract_decimals)}}</span>
+  
+                  
+
+                </p>
+                <p class="mt-3 mb-0 text-muted text-sm" style="margin-left: -20px;">
+                    <button type="button" class="btn btn-link" ngxClipboard [cbContent]="item.contract_address">Copy Contract Address</button>
+                  
+                </p>
+                <br/> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

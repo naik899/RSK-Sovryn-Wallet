@@ -13,6 +13,7 @@ export class WalletComponent implements OnInit {
 
   tokenInfo: tokenInfo[] = null;
   spottokens: tokenPriceInfo[] = null;
+  public totalBalance= 0;
   
   constructor(private tokenservice:BalanceService, private priceService: PriceService) { }
 
@@ -41,18 +42,25 @@ export class WalletComponent implements OnInit {
    return result.toFixed(2);
   }
 
-  public getUSDBalance(balance: string, ticker: string, contract_decimal: number): string{
+  getUSDBalance(balance: string, ticker: string, contract_decimal: number): string{
 
     let tokenDetails = this.spottokens.find(s=> s.contract_ticker_symbol == ticker);
     if(tokenDetails != null)
     {
       let result = Number.parseFloat(balance) / (Math.pow(10, contract_decimal));
       result = result * tokenDetails?.quote_rate;
-      return " ~ $"+ result.toFixed(3); 
+
+      this.totalBalance += result;
+      return " ~ $"+ result.toFixed(3);
     }
    
     
     return "";
   }
+
+  getTotalBalance(): string{
+    return "$ " + this.totalBalance.toFixed(3);
+  }
+
 
 }
