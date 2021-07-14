@@ -1,9 +1,9 @@
 
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"  *ngIf="NftData && NftData.length > 0; else elsepart">
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"  >
     <div class="container-fluid">
       <div class="header-body">
         <!-- Card stats -->
-        <div class="row" >
+        <div class="row" *ngIf="NftData && NftData.length > 0" >
           <div class="col-xl-3 col-lg-6" *ngFor="let item of NftData">
             <div class="card" style="margin-top: 20px;" >
                 <img class="card-img-top"  style="height: 18rem;"  src="{{item.image}}" alt="{{item.name}}">
@@ -24,6 +24,8 @@
               </div>
           </div>
         </div>
+
+        <h3 *ngIf="NftData && NftData.length == 0">No NFT's added to wallet yet</h3>
       </div>
     </div>
   </div>
