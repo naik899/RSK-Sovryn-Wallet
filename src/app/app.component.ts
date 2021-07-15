@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
         data.chainaddress = "0xfFe1426e77CE0F7c0945fCC1f4196CD8dC3f090A";
       }
       if (!data.chaintype) {
-        data.chaintype = "30";
+        data.chaintype = "31";
       }
       this.chaindataservice.setChainData(data.chainaddress,data.chaintype)
     }
