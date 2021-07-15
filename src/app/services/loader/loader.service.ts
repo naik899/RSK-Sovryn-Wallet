@@ -7,11 +7,13 @@ export class LoaderService {
 
   constructor() { }
   public showLoader() {
-    document.getElementById("loadercontainer").style.display = "block";
+    document.getElementById("app").classList.add("filter");
+    document.getElementById("loader").style.display = "block";
   }
   public hideLoader() {
     setTimeout(() => {
-      document.getElementById("loadercontainer").style.display = "none"; 
-    }, 1000);
+      document.getElementById("app").classList.remove("filter");
+      document.getElementById("loader").style.display = "none";
+    }, 500);
   }
 }

@@ -12,9 +12,10 @@ export class NftComponent implements OnInit {
   constructor(private tokenService: BalanceService, private loaderService: LoaderService) { }
   public NftData = [];
   async ngOnInit(): Promise<void> {
+    this.loaderService.showLoader();
     let data = await this.tokenService.getInfo(true);
     this.processNFTData(data);
-
+    this.loaderService.hideLoader()
     
     
   }
